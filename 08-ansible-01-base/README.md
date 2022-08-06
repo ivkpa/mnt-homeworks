@@ -7,10 +7,12 @@
 
 ## Основная часть
 1. Попробуйте запустить playbook на окружении из `test.yml`, зафиксируйте какое значение имеет факт `some_fact` для указанного хоста при выполнении playbook'a.  
-<b>12</b>  
+`12`    
 2. Найдите файл с переменными (group_vars) в котором задаётся найденное в первом пункте значение и поменяйте его на 'all default fact'.  
-<b>nano group_vars/all/examp.yml  
-some_fact: all default facts</b>  
+```
+nano group_vars/all/examp.yml  
+some_fact: all default fact
+```
 3. Воспользуйтесь подготовленным (используется `docker`) или создайте собственное окружение для проведения дальнейших испытаний.  
 ```bash
 docker run --name centos7 -d -t centos:7 tail -f /dev/null
@@ -70,7 +72,7 @@ ansible-vault encrypt group_vars/el/examp.yml
 ```
 TASK [Print fact] ************************************************************************************************************************************************************************************
 ok: [localhost] => {
-    "msg": "all default facts"
+    "msg": "all default fact"
 }
 ok: [centos7] => {
     "msg": "el default fact"
