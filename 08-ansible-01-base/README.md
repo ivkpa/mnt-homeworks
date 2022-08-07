@@ -17,7 +17,7 @@ some_fact: all default fact
 ```bash
 docker run --name centos7 -d -t centos:7 tail -f /dev/null
 docker run --name ubuntu -d -t ubuntu tail -f /dev/null
-docker exec -it $(docker ps -q --filter ancestor=ubuntu) apt update && apt install python3 -y
+docker exec -it $(docker ps -q --filter ancestor=ubuntu) bash -c "apt update && apt install python3 -y"
 ```
 4. Проведите запуск playbook на окружении из `prod.yml`. Зафиксируйте полученные значения `some_fact` для каждого из `managed host`.  
 ```
